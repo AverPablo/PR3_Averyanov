@@ -1,8 +1,8 @@
-name: Process 1.txt Workflow
+name: Process 12.txt Workflow
 on:
   create:
     paths:
-      - '1.txt'
+      - '12.txt'
 
 jobs:
   create_file:
@@ -13,14 +13,14 @@ jobs:
 
       - name: Create a text file
         run: |
-          echo "Hello, this is the content of 1.txt" > 1.txt
-          echo "Файл 1.txt создан."
+          echo "This is the content of 12.txt" > 12.txt
+          echo "Файл 12.txt создан."
 
-      - name: Upload 1.txt as artifact
+      - name: Upload 12.txt as artifact
         uses: actions/upload-artifact@v3
         with:
           name: text-file-artifact
-          path: 1.txt
+          path: 12.txt
 
   process_file:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
         with:
           name: text-file-artifact
 
-      - name: Read and display the content of 1.txt
+      - name: Read and display the content of 12.txt
         run: |
-          content=$(cat 1.txt)
-          echo "Содержимое файла 1.txt: $content"
+          content=$(cat 12.txt)
+          echo "Содержимое файла 12.txt: $content"
